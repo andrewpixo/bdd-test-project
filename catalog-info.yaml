@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "test-bdd-project"
+spec:
+  type: test-suite
+  owner: user:guest
+  lifecycle: experimental

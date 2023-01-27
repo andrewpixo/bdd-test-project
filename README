@@ -1,0 +1,78 @@
+# BDD StarterPack | Pixo QA
+## NodeJS + Cucumber + Selenium 
+
+---
+### Instructions
+* Install dependencies with `npm i`.
+* Create a `.env` file in the root of your project.
+* Use the `.env` file to specify...
+    * the browser for your tests ('chrome' or 'safari' should work straight out of the box without any fuss). Use `BROWSER=chrome` or `BROWSER=safari`.
+    * or the credentials and configuration options for the LambdaTest selenium grid. 
+* Run BDD tests using: `npm test`. (All tests should pass.)
+
+#### Hints
+* Try adding a new Scenario to the friday.feature. This `.feature` file is currently covers scenarios for only two of the seven days. 
+* After adding the new scenario, run the test again. 
+* The result should be a new error followed by advice for what snippets to add into the `isItfriday.stepdefs.js` file. 
+* Use the provided snippets to craft new step definitions to assert the new BDD scenario. 
+
+---
+
+### What's inside?
+* Sample #1: **isItFriday** 
+    * The `.feature` file and step definitions for a generic Cucumber test using NodeJS.
+        ```
+        📄 isItFriday.stepdefs.js
+        📄 friday.feature
+        ```
+* Sample #2: **cheese**
+    * The `.feature` file and step definitions for a Cucumber test using NodeJS and Selenium webdriver to compelete a single scenario BDD test using https://google.com. 
+        ```
+        📄 cheese.stepdefs.js
+        📄 cheese.feature
+        ```
+* Sample #3: **navigation**
+    * The `.feature` file and step definitions for a Cucumber test using NodeJS and Selenium webdriver to compelete a multi-scenario BDD test using https://pixotech.com. The scenarios cover different use cases for small versus large screens.
+        ```
+        📄 navigation.stepdefs.js
+        📄 navigation.feature
+        ```
+* Sample #4: **navigation2** (LambdaTest Grid)
+    * The step definitions for a Cucumber test using NodeJS and Selenium webdriver over the LambdaTest selenium grid.
+    * Uses more than one device configuration to test different use cases for small versus large screens.
+    * To use sample #4, you must comment-out the stepdefs for sample #3, uncomment-out the `navigation2.stepdefs.js` script, and provide the necessary authentication credentials for the LambdaTest Grid. 
+    * ⚠️ Cucumber+Selenium setup doesn't seem prepared (or perhaps intended) to be looped through multiple browser/machine configurations. Instead, use the .env file to set your desired machineSetup.  
+        ```
+        📄 navigation2.stepdefs.js
+        ```
+        > *This file is commented out as it will otherwise conflict with the step definitions for sample #3.* 
+
+### What to put in the .env file:
+```
+BROWSER=chrome
+# BROWSER=safari
+
+USERNAME= **Private** <-You will need to visit LambdaTest to retrive this credential
+KEY= **Private** <-You will need to visit LambdaTest to retrive this credential
+
+MACHINE_CONFIG=0
+
+
+# Reference of MACHINE_CONFIGs:
+## Desktop and laptop device list
+#0    { browserName: 'Chrome', platform: 'Windows 11', version: 'latest', resolution: '2048x1536' },
+#1    { browserName: 'Firefox', platform: 'Windows 11', version: 'latest', resolution: '1280x800' },
+#2    { browserName: 'MicrosoftEdge', platform: 'Windows 11', version: 'latest', resolution: '1280x800' },
+#3    { browserName: 'Chrome', platform: 'MacOS Monterey', version: 'latest', resolution: '2048x1536' },
+#4    { browserName: 'Firefox', platform: 'MacOS Monterey', version: 'latest', resolution: '2048x1536' },
+#5    { browserName: 'Safari', platform: 'MacOS Monterey', version: 'latest', resolution: '1280x960' },
+## Mobile and tablet device list
+#6    { browserName: 'Safari', platformName: 'iOS', deviceName: 'iPhone 12', platformVersion: '14.2', deviceOrientation: 'PORTRAIT' },
+#7    { browserName: 'Safari', platformName: 'iOS', deviceName: 'iPad Pro (10.5-inch)', platformVersion: '14.2', deviceOrientation: 'PORTRAIT' },
+#8    { browserName: 'Safari', platformName: 'iOS', deviceName: 'iPad Pro (10.5-inch)', platformVersion: '14.2', deviceOrientation: 'LANDSCAPE' },
+#9    { browserName: 'Chrome', platformName: 'Android', deviceName: 'Google Pixel 4 XL', platformVersion: '11', deviceOrientation: 'PORTRAIT' },
+#10    { browserName: 'Chrome', platformName: 'Android', deviceName: 'Galaxy Tab S6', platformVersion: '11', deviceOrientation: 'PORTRAIT' },
+#11    { browserName: 'Chrome', platformName: 'Android', deviceName: 'Galaxy Tab S6', platformVersion: '11', deviceOrientation: 'LANDSCAPE' }
+
+```
+

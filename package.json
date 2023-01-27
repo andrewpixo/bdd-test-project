@@ -1,0 +1,19 @@
+{
+  "name": "test-bdd-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.5.1",
+    "selenium-webdriver": "^4.3.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
+}
